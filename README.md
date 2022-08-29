@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+---
+tags: Fronends, Eslint
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Step 1: Install
+```bash=
+yarn add -D eslint
+yarn add -D eslint-plugin-react eslint-plugin-css-modules eslint-config-airbnb eslint-plugin-import eslint-plugin-react-hooks eslint-plugin-jsx-a11y @typescript-eslint/eslint-plugin @typescript-eslint/parser
 
-## Available Scripts
+# init eslint configration
+./node_modules/.bin/eslint --init
+```
 
-In the project directory, you can run:
+Choose the option by the following steps:
+1. To check syntax, find problems, and enforce code style
+2. JavaScript modules (import/export)
+3. None of these (react/ vue)
+4. Yes for typescript.
+5. Browser (if for frontend) - (node for backend).
+6. Use a popular style guide: `airbnb`
+7. JavaScript -- format for eslint config
+8. Would you like to install them now with npm? › `No` -> if you use `yarn`
 
-### `npm start`
+## Step 2: Config Eslint
+- Install Eslint extension + Prettier in VSCode
+- Open setting (JSON) of VS code: add configs to this file `setting.json`
+```json = 
+// should use another combined key to format
+"editor.codeActionsOnSave": {
+  "source.fixAll.eslint": false
+},
+"editor.formatOnSave": false,
+"eslint.validate": ["javascript"],
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Step 3: Add rules:
+Ref: https://eslint.org/docs/rules/
+1. if you don't want to produce any error messages: `off` | `warn` | `error`
+`"no-console": "off",`
+2. Double quotes: 
+`"quotes": ["error", "double"],`
+3. Indent:
+`"indent": ["error", 4],`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Sample file: 
+> I have attached 2 file config: `.eslintrc.js` and `.prettierrc` in this repository.
+> Just copy both files to your project after installing eslint to `package.json`
